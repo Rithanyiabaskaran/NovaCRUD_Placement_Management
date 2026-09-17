@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaPlace - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <div class="logo">
+                <div class="logo-icon">N</div>
+                <div>
+                    <h1>NovaPlace</h1>
+                    <p>Placement Management System</p>
+                </div>
+            </div>
+
+            <h2>Welcome Back 👋</h2>
+            <p class="subtitle">Login to continue to NovaPlace</p>
+
+            <form id="loginForm">
+
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">Login</button>
+
+                <p id="errorMessage"></p>
+
+            </form>
+
+            <div class="demo-box">
+                <h3>Demo Login</h3>
+
+                <p>
+                    <strong>Demo Email:</strong><br>
+                    demo@novaplace.com
+                </p>
+
+                <p>
+                    <strong>Demo Password:</strong><br>
+                    Nova@123
+                </p>
+            </div>
+
+            <p class="footer-text">
+                © 2026 NovaPlace. All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            const demoEmail = "demo@novaplace.com";
+            const demoPassword = "Nova@123";
+
+            if (email === demoEmail && password === demoPassword) {
+
+                sessionStorage.setItem("novaplaceLoggedIn", "true");
+
+                window.location.href = "landing.html";
+
+            } else {
+
+                document.getElementById("errorMessage").textContent =
+                    "Invalid email or password. Please use the demo credentials.";
+
+            }
+
+        });
+    </script>
+
+</body>
+</html>
